@@ -37,7 +37,9 @@ namespace Unity.Utility
         /// </summary>
         [FormerlySerializedAs("isVisible")] 
         [SerializeField] 
+#pragma warning disable CS0414 // Read via SerializedProperty and UXML binding.
         private bool _isVisible = false;
+#pragma warning restore CS0414
         
         private void Reset()
         {
