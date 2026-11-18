@@ -52,6 +52,7 @@ namespace Unity.TinyCharacterController.Control
                     return 0; 
 
                 var delta = Target.position - transform.position;
+                delta.y = 0;
 
                 return (delta.sqrMagnitude > 0) ? 
                         Vector3.SignedAngle(Vector3.forward, delta, Vector3.up) : 
