@@ -1,6 +1,10 @@
 {
   "name": "jp.andantetribe.tiny.character.controller",
   "displayName": "Tiny Character Controller",
+  "author": {
+    "name": "AndanteTribe",
+    "url": "https://github.com/AndanteTribe"
+  },
   "version": "1.0.0",
   "unity": "6000.3",
   "dependencies": {
