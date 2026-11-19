@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Cinemachine.CinemachineBrain.BrainEvent))]
-	public class PropertyProvider_Cinemachine_CinemachineBrain_BrainEvent : Unity.VisualScripting.SerializedPropertyProvider<Cinemachine.CinemachineBrain.BrainEvent>
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Unity.Cinemachine.CinemachineImpulseDefinition))]
+	public class PropertyProvider_Unity_Cinemachine_CinemachineImpulseDefinition : Unity.VisualScripting.SerializedPropertyProvider<global::Unity.Cinemachine.CinemachineImpulseDefinition>
 	{
 	}
 }

@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Cinemachine.CinemachineBrain.VcamActivatedEvent))]
-	public class PropertyProvider_Cinemachine_CinemachineBrain_VcamActivatedEvent : Unity.VisualScripting.SerializedPropertyProvider<Cinemachine.CinemachineBrain.VcamActivatedEvent>
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Unity.Cinemachine.CinemachineCore.BrainEvent))]
+	public class PropertyProvider_Unity_Cinemachine_CinemachineCore_BrainEvent : Unity.VisualScripting.SerializedPropertyProvider<global::Unity.Cinemachine.CinemachineCore.BrainEvent>
 	{
 	}
 }

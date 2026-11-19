@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Cinemachine.CinemachineImpulseManager.EnvelopeDefinition))]
-	public class PropertyProvider_Cinemachine_CinemachineImpulseManager_EnvelopeDefinition : Unity.VisualScripting.SerializedPropertyProvider<Cinemachine.CinemachineImpulseManager.EnvelopeDefinition>
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Unity.Cinemachine.CinemachineImpulseManager.EnvelopeDefinition))]
+	public class PropertyProvider_Unity_Cinemachine_CinemachineImpulseManager_EnvelopeDefinition : Unity.VisualScripting.SerializedPropertyProvider<global::Unity.Cinemachine.CinemachineImpulseManager.EnvelopeDefinition>
 	{
 	}
 }

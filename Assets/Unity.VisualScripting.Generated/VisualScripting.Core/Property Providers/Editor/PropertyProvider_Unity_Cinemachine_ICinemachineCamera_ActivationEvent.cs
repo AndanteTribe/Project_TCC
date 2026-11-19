@@ -12,8 +12,8 @@ namespace Unity.VisualScripting.Generated.PropertyProviders
 {
 	
 	
-	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Cinemachine.CinemachineTriggerAction.ActionSettings.TriggerEvent))]
-	public class PropertyProvider_Cinemachine_CinemachineTriggerAction_ActionSettings_TriggerEvent : Unity.VisualScripting.SerializedPropertyProvider<Cinemachine.CinemachineTriggerAction.ActionSettings.TriggerEvent>
+	[global::Unity.VisualScripting.SerializedPropertyProviderAttribute(typeof(global::Unity.Cinemachine.ICinemachineCamera.ActivationEvent))]
+	public class PropertyProvider_Unity_Cinemachine_ICinemachineCamera_ActivationEvent : Unity.VisualScripting.SerializedPropertyProvider<global::Unity.Cinemachine.ICinemachineCamera.ActivationEvent>
 	{
 	}
 }
