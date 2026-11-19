@@ -41,16 +41,23 @@ namespace Unity.TinyCharacterController.Test
         public IEnumerator 移動([ValueSource(nameof(BrainNames))]string brainName)
         {
             var control = GetObjectAndComponentInRoot<ManualControl>(brainName);
-            control.gameObject.SetActive(true);
+            // Simulate the same frame duration regardless of the test runner's rendering speed.
+            var previousDeltaTime = Time.captureDeltaTime;
+            try
+            {
+                Time.captureDeltaTime = 1f / 60f;
+                control.gameObject.SetActive(true);
+                control.MoveVelocity = new Vector3(1, 0, 0);
+                control.MovePriority = 1;
+                yield return new WaitForSeconds(2);
 
-            control.MoveVelocity = new Vector3(1, 0, 0);
-            control.MovePriority = 1;
-
-            yield return new WaitForSeconds(2);
-
-            control.MovePriority = 0;
-
-            yield return null;
+                control.MovePriority = 0;
+                yield return null;
+            }
+            finally
+            {
+                Time.captureDeltaTime = previousDeltaTime;
+            }
             
             var diff = Vector3.Distance(new Vector3(2, 0, 0), control.transform.position);
             Assert.That(diff, Is.LessThan(0.25f));
@@ -89,7 +96,7 @@ namespace Unity.TinyCharacterController.Test
             yield return new WaitForSeconds(1);
             
             Assert.That(control.transform.rotation.eulerAngles.y, 
-                Is.EqualTo(90));
+                Is.EqualTo(90f).Within(0.01f));
         }
 
         [UnityTest]

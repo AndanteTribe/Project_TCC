@@ -203,14 +203,10 @@ namespace Unity.TinyCharacterController.Effect
             {    
                 var currentPoint = _activePlatform.TransformPoint(_localPoint);
                 var currentRotation = _activePlatform.rotation * _localRotation;
-                var inverseRotation = Quaternion.Inverse(_previousRotation);
     
                 DeltaPosition = currentPoint - _previousPoint;
 
-                var angel = Quaternion.Angle(currentRotation, inverseRotation);
-                DeltaRotation = Mathf.Approximately(angel, 0)
-                    ? Quaternion.identity
-                    : currentRotation * Quaternion.Inverse(_previousRotation);
+                DeltaRotation = currentRotation * Quaternion.Inverse(_previousRotation);
             }
     
             private void UpdatePreviousPointAndRotation(in Vector3 position, Quaternion rotation)
