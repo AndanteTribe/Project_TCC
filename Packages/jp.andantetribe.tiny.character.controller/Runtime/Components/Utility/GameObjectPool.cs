@@ -72,7 +72,7 @@ namespace Unity.TinyCharacterController.Utility
         /// </summary>
         private readonly Stack<PooledGameObject> _free = new();
 
-        private int _cachedPrefabInstanceID;
+        private EntityId _cachedPrefabEntityId;
         private bool _hasParent;
         private bool _hasRigidbody;
         private bool _isInitialize;
@@ -129,15 +129,15 @@ namespace Unity.TinyCharacterController.Utility
         }
 
         /// <summary>
-        ///     The instance ID of the Prefab.
+        ///     The entity ID of the Prefab.
         /// </summary>
-        public int PrefabID
+        public EntityId PrefabID
         {
             get
             {
                 if (_isInitialize == false)
                     Initialize();
-                return _cachedPrefabInstanceID;
+                return _cachedPrefabEntityId;
             }
         }
 
@@ -307,7 +307,7 @@ namespace Unity.TinyCharacterController.Utility
             if (_hideSpawnObject)
                 newInstance.gameObject.hideFlags = HideFlags.HideInHierarchy;
 
-            newInstance.gameObject.name = $"{_prefab.name}({newInstance.GetInstanceID()})";
+            newInstance.gameObject.name = $"{_prefab.name}({newInstance.GetEntityId()})";
 #endif
             
             return newInstance;
@@ -368,7 +368,7 @@ namespace Unity.TinyCharacterController.Utility
             Assert.IsFalse(_prefab.gameObject.activeSelf && _isActiveOnGet == false,
                 $"{_prefab.name} is Active. Make it inactive to be consistent with _isActiveOnGet.");
 
-            _cachedPrefabInstanceID = ((IPooledObject)_prefab).InstanceId;
+            _cachedPrefabEntityId = ((IPooledObject)_prefab).EntityId;
             _hasRigidbody = _prefab.TryGetComponent(out Rigidbody _);
             _isInitialize = true;
             _hasParent = _parent != null;

@@ -180,6 +180,6 @@ namespace Unity.TinyCharacterController.Test
                 Is.EqualTo(new Vector3(-5, 0, 0)).Using(Vector3EqualityComparer.Instance));
         }
 
-        protected override string ScenePath => "Packages/com.unity.tiny.character.controller/Tests/Scenes/BrainTest.unity";
+        protected override string ScenePath => "Packages/jp.andantetribe.tiny.character.controller/Tests/Scenes/BrainTest.unity";
     }
 }

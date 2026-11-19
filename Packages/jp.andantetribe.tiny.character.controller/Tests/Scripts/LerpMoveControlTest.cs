@@ -247,6 +247,6 @@ namespace Unity.TinyCharacterController.Test
         }
 
         protected override string ScenePath =>
-            "Packages/com.unity.tiny.character.controller/Tests/Scenes/LerpMoveControlTest.unity";
+            "Packages/jp.andantetribe.tiny.character.controller/Tests/Scenes/LerpMoveControlTest.unity";
     }
 }

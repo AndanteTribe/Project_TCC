@@ -6,6 +6,6 @@ namespace Unity.TinyCharacterController.Test
 {
     public static class TestConstants
     {
-        public const string PackagePath = "Packages/com.unity.tiny.character.controller/Tests/";
+        public const string PackagePath = "Packages/jp.andantetribe.tiny.character.controller/Tests/";
     }
 }

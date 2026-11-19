@@ -50,7 +50,7 @@ namespace Unity.TinyCharacterController.Check
         public UnityEvent OnChangeClosestTarget;
 
         private static readonly Collider[] Results = new Collider[100];
-        private int _preInstanceId;
+        private EntityId _preEntityId;
 
         private void Awake()
         {
@@ -69,13 +69,13 @@ namespace Unity.TinyCharacterController.Check
             Target = ClosestCollider(position, Results, count);
 
             // Compare the past and current colliders, and if the collider has changed, Invoke the UnityEvent.
-            // This judgment is based on the InstanceID, taking into account cases where the collider has been deleted.
-            var instanceId = Target != null ? Target.GetInstanceID() : 0;
-            if (_preInstanceId != instanceId)
+            // This judgment is based on the entity ID, taking into account cases where the collider has been deleted.
+            var entityId = Target != null ? Target.GetEntityId() : default;
+            if (_preEntityId != entityId)
             {
                 OnChangeClosestTarget?.Invoke();
             }
-            _preInstanceId = instanceId;
+            _preEntityId = entityId;
         }
 
 

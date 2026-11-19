@@ -180,9 +180,9 @@ namespace Unity.TinyCharacterController.Manager
         private IGameObjectPool GetPoolInternal(IPooledObject prefab, Scene scene)
         {
             // Get the prefab with a matching instance ID.
-            var instanceID = prefab.InstanceId;
+            var entityId = prefab.EntityId;
             var pool = _components
-                .Find(c => c.Scene == scene && c.PrefabID == instanceID);
+                .Find(c => c.Scene == scene && c.PrefabID == entityId);
 
             if (pool == null)
                 throw new Exception($"{((MonoBehaviour)prefab).name} prefab is not registered.");
@@ -198,8 +198,8 @@ namespace Unity.TinyCharacterController.Manager
         /// <exception cref="Exception">GameObjectPool not found.</exception>
         private IGameObjectPool GetPoolInternal(IPooledObject prefab)
         {
-            var instanceID = prefab.InstanceId;
-            var pool = _components.Find(c => c.PrefabID == instanceID);
+            var entityId = prefab.EntityId;
+            var pool = _components.Find(c => c.PrefabID == entityId);
             if (pool == null)
                 throw new Exception($"{((MonoBehaviour)prefab).name} prefab is not registered.");
 
@@ -212,8 +212,8 @@ namespace Unity.TinyCharacterController.Manager
         /// <param name="prefab">The object that holds the PooledObject.</param>
         private void DestroyPoolInternal(IPooledObject prefab)
         {
-            var instanceID = prefab.InstanceId;
-            var pool = _components.Find(c => c.PrefabID == instanceID);
+            var entityId = prefab.EntityId;
+            var pool = _components.Find(c => c.PrefabID == entityId);
             if (pool != null)
             {
                 _components.Remove(pool);

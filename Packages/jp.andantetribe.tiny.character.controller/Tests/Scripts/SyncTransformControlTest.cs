@@ -156,6 +156,6 @@ namespace Unity.TinyCharacterController.Test
 
         }
         
-        protected override string ScenePath => "Packages/com.unity.tiny.character.controller/Tests/Scenes/SyncTransformControlTest.unity";
+        protected override string ScenePath => "Packages/jp.andantetribe.tiny.character.controller/Tests/Scenes/SyncTransformControlTest.unity";
     }
 }

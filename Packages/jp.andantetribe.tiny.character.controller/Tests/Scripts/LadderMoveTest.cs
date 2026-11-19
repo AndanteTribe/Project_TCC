@@ -12,7 +12,7 @@ namespace Unity.TinyCharacterController.Test
     public class LadderMoveTest : SceneTestBase
     {
         protected override string ScenePath
-            => "Packages/com.unity.tiny.character.controller/Tests/Scenes/LadderMoveControl.unity";
+            => "Packages/jp.andantetribe.tiny.character.controller/Tests/Scenes/LadderMoveControl.unity";
 
         [UnityTest]
         public IEnumerator 掴むとプライオリティが有効になる()

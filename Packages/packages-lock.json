@@ -300,14 +300,14 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.tiny.character.controller": {
-      "version": "file:com.utj.charactercontroller",
+    "jp.andantetribe.tiny.character.controller": {
+      "version": "file:jp.andantetribe.tiny.character.controller",
       "depth": 0,
       "source": "embedded",
       "dependencies": {
-        "com.unity.burst": "1.8.10",
-        "com.unity.visualscripting": "1.9.1",
-        "com.unity.collections": "1.2.4"
+        "com.unity.burst": "1.8.31",
+        "com.unity.visualscripting": "1.9.13",
+        "com.unity.collections": "2.7.1"
       }
     },
     "com.unity.toonshader": {

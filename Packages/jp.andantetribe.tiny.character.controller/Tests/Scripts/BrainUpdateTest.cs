@@ -47,7 +47,7 @@ namespace Unity.TinyCharacterController.Test
         }
 
         protected override string ScenePath =>
-            "Packages/com.unity.tiny.character.controller/Tests/Scenes/BrainUpdateTest.unity";
+            "Packages/jp.andantetribe.tiny.character.controller/Tests/Scenes/BrainUpdateTest.unity";
         
         [AddComponentMenu("")]
         internal class MockCheck : MonoBehaviour, IEarlyUpdateComponent
