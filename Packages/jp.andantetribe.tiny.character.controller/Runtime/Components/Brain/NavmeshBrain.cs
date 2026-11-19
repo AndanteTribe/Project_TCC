@@ -16,8 +16,10 @@ namespace Unity.TinyCharacterController.Brain
     [RequireComponent(typeof(NavMeshAgent))]
     [DefaultExecutionOrder(Order.UpdateBrain)]
     [RequireComponent(typeof(CharacterSettings))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.NavmeshBrain")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Brain.NavmeshBrain")]
+#endif
     public class NavmeshBrain : BrainBase, 
         ICharacterSettingUpdateReceiver
     {

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
@@ -13,8 +12,10 @@ namespace Unity.TinyCharacterController.Effect
     [DisallowMultipleComponent]
     [AddComponentMenu(MenuList.MenuEffect + nameof(AdditionalVelocity))]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.AdditionalVelocity")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.AdditionalVelocity")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Effect.AdditionalVelocity")]
+#endif
     public class AdditionalVelocity : MonoBehaviour, IEffect
     {
         [SerializeField] private Vector3 _velocity;

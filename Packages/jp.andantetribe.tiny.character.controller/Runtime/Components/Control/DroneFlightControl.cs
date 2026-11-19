@@ -12,8 +12,10 @@ namespace Unity.TinyCharacterController.Control
     [AddComponentMenu(MenuList.MenuControl + nameof(DroneFlightControl))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.DroneFlightController")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.DroneFlightControl")]
+#endif
     public class DroneFlightControl : MonoBehaviour, 
         ITurn, 
         IMove, 

@@ -359,7 +359,6 @@
       "source": "embedded",
       "dependencies": {
         "com.unity.burst": "1.8.31",
-        "com.unity.visualscripting": "1.9.13",
         "com.unity.collections": "2.7.1"
       }
     },

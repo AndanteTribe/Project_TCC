@@ -1,18 +1,21 @@
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Unity.TinyCharacterController.Ik
 {
     [AddComponentMenu(MenuList.Ik + "LimbRig")]
-    [RenamedFrom("TinyCharacterController.LimbRig")]
-    [RenamedFrom("TinyCharacterController.Ik.LimbRig")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.LimbRig")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Ik.LimbRig")]
+#endif
     public class LimbRig : MonoBehaviour, IIkRig
     {
         [FormerlySerializedAs("isWorking")] 
-        [RenamedFrom("isWorking")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("isWorking")]
+#endif
         public bool IsWorking = true;
 
         [SerializeField] private AvatarIKGoal _ikGoal;
@@ -21,11 +24,15 @@ namespace Unity.TinyCharacterController.Ik
         [SerializeField] private  Transform _hint;
         
         [FormerlySerializedAs("transitionToEnable")] 
-        [RenamedFrom("transitionToEnable")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("transitionToEnable")]
+#endif
         public float TransitionToEnable;
         
         [FormerlySerializedAs("transitionToDisable")] 
-        [RenamedFrom("transitionToDisable")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("transitionToDisable")]
+#endif
         public float TransitionToDisable = 0.3f;
         
         private float _weight;

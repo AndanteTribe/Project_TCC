@@ -20,8 +20,10 @@ namespace Unity.TinyCharacterController.Check
     [AddComponentMenu(MenuList.MenuCheck + nameof(AimCheck))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.AimCheck")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Check.AimCheck")]
+#endif
     public class AimCheck : MonoBehaviour, 
         IComponentCondition, 
         IEarlyUpdateComponent, 

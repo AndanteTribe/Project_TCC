@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Unity.TinyCharacterController.Interfaces.Core;
@@ -14,8 +13,10 @@ namespace Unity.TinyCharacterController.Control
     /// </summary>
     [AddComponentMenu(MenuList.MenuControl + nameof(StickLookControl))]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.StickLookControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.StickLookControl")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.StickLookControl")]
+#endif
     public class StickLookControl : MonoBehaviour, 
         ITurn
     {

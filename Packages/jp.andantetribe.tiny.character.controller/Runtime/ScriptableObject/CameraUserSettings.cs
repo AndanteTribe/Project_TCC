@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Unity.TinyCharacterController.Settings
 {
-    [RenamedFrom("TinyCharacterController.Settings.CameraUserSettings")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Settings.CameraUserSettings")]
+#endif
     [CreateAssetMenu(menuName = "TCC/CameraUserSettings", fileName = "New TCC Camera Setting", order = 100)]
     public class CameraUserSettings : ScriptableObject
     {

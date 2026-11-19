@@ -5,7 +5,6 @@ using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 
 namespace Unity.TinyCharacterController.Control
 {
@@ -21,8 +20,10 @@ namespace Unity.TinyCharacterController.Control
     [RequireInterface(typeof(IGravity))]
     [RequireInterface(typeof(IGroundContact))]
     [RequireInterface(typeof(IOverheadDetection))]
-    [RenamedFrom("TinyCharacterController.JumpControl")]
-    [RenamedFrom("TinyCharacterController.Control.JumpControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.JumpControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.JumpControl")]
+#endif
     public class JumpControl : MonoBehaviour, 
         IUpdateComponent, 
         IMove, 
@@ -32,7 +33,9 @@ namespace Unity.TinyCharacterController.Control
         /// Jump height.
         /// </summary>
         [FormerlySerializedAs("_jumpHeight")]
+#if PACKAGE_VISUAL_SCRIPTING
         [Unity.VisualScripting.RenamedFrom("_jumpHeight")]
+#endif
         [Header("Settings")]
         [Tooltip("JumpHeight"), SerializeField]
         public float JumpHeight = 3;
@@ -163,7 +166,9 @@ namespace Unity.TinyCharacterController.Control
         /// Note that it does not jump immediately.
         /// </summary>
         /// <param name="incrementJumpCount">Count the number of jumps</param>.
-        [RenamedFrom("RequestJump")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("RequestJump")]
+#endif
         public void Jump(bool incrementJumpCount = true)
         {
             _requestJumpIncrement = incrementJumpCount;
@@ -175,7 +180,9 @@ namespace Unity.TinyCharacterController.Control
         /// This process is executed immediately.
         /// </summary>
         /// <param name="incrementJumpCount">The number of jumps is +1. </param>
-        [RenamedFrom("Jump")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("Jump")]
+#endif
         public void ForceJump(bool incrementJumpCount = true)
         {
             // +1 to the number of jumps if already in the air; if not off the ground,

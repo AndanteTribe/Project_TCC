@@ -1,7 +1,6 @@
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Unity.TinyCharacterController.Core
@@ -65,7 +64,9 @@ namespace Unity.TinyCharacterController.Core
         /// Movement by warp takes precedence over <see cref="IMove"/>.
         /// </summary>
         /// <param name="position">New position.</param>
-        [RenamedFrom("SetPosition")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("SetPosition")]
+#endif
         public void Warp(Vector3 position)
         {
             _warpManager.SetPosition(position);
@@ -77,7 +78,9 @@ namespace Unity.TinyCharacterController.Core
         /// Movement by warp takes precedence over <see cref="ITurn"/>.
         /// </summary>
         /// <param name="rotation">new rotation.</param>
-        [RenamedFrom("SetRotation")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("SetRotation")]
+#endif
         public void Warp(Quaternion rotation)
         {
             _warpManager.SetRotation(rotation);
@@ -116,7 +119,9 @@ namespace Unity.TinyCharacterController.Core
         /// Current character movement speed by Control.
         /// If there is no <see cref="IMove"/> greater than 0, the value is 0.
         /// </summary>
-        [RenamedFrom("Speed")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("Speed")]
+#endif
         public float CurrentSpeed => _moveManager.CurrentSpeed;
 
         /// <summary>
@@ -138,14 +143,18 @@ namespace Unity.TinyCharacterController.Core
         /// <summary>
         /// Movement vector of the character in world space.
         /// </summary>
-        [RenamedFrom("ControllableVelocity")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("ControllableVelocity")]
+#endif
         public Vector3 ControlVelocity => _moveManager.Velocity;
 
         /// <summary>
         /// Additional movement vectors that are added.
         /// For example, gravity or impact.
         /// </summary>
-        [RenamedFrom("AdditionalVelocity")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("AdditionalVelocity")]
+#endif
         public Vector3 EffectVelocity => _effectManager.Velocity;
         
         /// <summary>

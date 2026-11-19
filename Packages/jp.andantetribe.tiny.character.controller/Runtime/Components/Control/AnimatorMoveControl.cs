@@ -4,7 +4,6 @@ using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Modifier;
 using Unity.TinyCharacterController.Smb;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Unity.TinyCharacterController.Control
@@ -17,8 +16,10 @@ namespace Unity.TinyCharacterController.Control
     /// </summary>
     [AddComponentMenu(MenuList.MenuControl + nameof(AnimatorMoveControl))]
     [DisallowMultipleComponent]
-    [RenamedFrom("TinyCharacterController.AnimatorMove")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.AnimatorMove")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.AnimatorMoveControl")]
+#endif
     public class AnimatorMoveControl : MonoBehaviour,
         IPriorityLifecycle<IMove>,
         IMove,

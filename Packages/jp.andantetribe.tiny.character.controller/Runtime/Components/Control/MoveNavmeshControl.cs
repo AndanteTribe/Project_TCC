@@ -3,7 +3,6 @@ using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Interfaces.Utility;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
@@ -28,8 +27,10 @@ namespace Unity.TinyCharacterController.Control
     [RequireComponent(typeof(Transform))]
     [RequireComponent(typeof(CharacterSettings))]
     [RequireInterface(typeof(IBrain))]
-    [RenamedFrom("TinyCharacterController.Control.MoveNavmeshControl")]
-    [RenamedFrom("TinyCharacterController.MoveByNavigationControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.MoveNavmeshControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.MoveByNavigationControl")]
+#endif
     public class MoveNavmeshControl : MonoBehaviour, 
         IMove, ITurn, IUpdateComponent,
         IComponentCondition

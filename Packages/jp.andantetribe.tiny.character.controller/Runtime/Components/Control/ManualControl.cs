@@ -1,6 +1,5 @@
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -13,8 +12,10 @@ namespace Unity.TinyCharacterController.Control
     [AddComponentMenu(MenuList.MenuControl + nameof(ManualControl))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.ManualControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.ManualControl")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.ManualControl")]
+#endif
     public class ManualControl : MonoBehaviour , 
         ITurn, 
         IMove

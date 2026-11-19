@@ -5,7 +5,6 @@ using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -27,8 +26,10 @@ namespace Unity.TinyCharacterController.Control
     [RequireComponent(typeof(Transform))]
     [RequireComponent(typeof(CharacterSettings))]
     [RequireInterface(typeof(IBrain))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.MovePositionControl")]
-    [RenamedFrom("TinyCharacterController.MovePositionControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.MovePositionControl")]
+#endif
     public class MovePositionControl : MonoBehaviour, 
         IMove, ITurn, IUpdateComponent
     {

@@ -18,8 +18,10 @@ namespace Unity.TinyCharacterController.Utility
     [BurstCompile]
     [DefaultExecutionOrder(Order.Check)]
     [AddComponentMenu(MenuList.MenuCheck + nameof(SequentialCollisionDetector))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Utility.MultiStepCollisionDetector")]
-    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Utility.SequentialCollisionDetector")]    
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Utility.SequentialCollisionDetector")]
+#endif
     public class SequentialCollisionDetector : CollisionDetectorBase
     {
         /// <summary>

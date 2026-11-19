@@ -1,7 +1,6 @@
 using System;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -14,8 +13,10 @@ namespace Unity.TinyCharacterController.Control
     [Obsolete("Recommends Manual Control")]
     [AddComponentMenu(MenuList.MenuControl + nameof(ManualTurn))]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.ManualCharacterTurn")]
-    [RenamedFrom("TinyCharacterController.Control.ManualTurn")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.ManualCharacterTurn")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.ManualTurn")]
+#endif
     [DisallowMultipleComponent]
     public class ManualTurn : MonoBehaviour, ITurn
     {

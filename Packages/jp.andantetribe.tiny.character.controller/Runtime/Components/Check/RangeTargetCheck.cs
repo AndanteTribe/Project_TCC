@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,8 +16,10 @@ namespace Unity.TinyCharacterController.Check
     [AddComponentMenu(MenuList.MenuCheck + nameof(RangeTargetCheck))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.RangeTargetCheck")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.RangeTargetCheck")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Check.RangeTargetCheck")]
+#endif
     public class RangeTargetCheck : MonoBehaviour, IEarlyUpdateComponent
     {
         private const int Capacity = 100;

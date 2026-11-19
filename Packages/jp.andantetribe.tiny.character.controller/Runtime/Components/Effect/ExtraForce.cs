@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Buffers;
 using UnityEngine;
 using UnityEngine.Events;
 using Unity.TinyCharacterController.Core;
@@ -14,8 +14,10 @@ namespace Unity.TinyCharacterController.Effect
     /// </summary>
     [AddComponentMenu(MenuList.MenuEffect + nameof(ExtraForce))]
     [DisallowMultipleComponent]
-    [RenamedFrom("TinyCharacterController.ExtraForce")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.ExtraForce")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Effect.ExtraForce")]
+#endif
     public class ExtraForce : ComponentBase,
         IEffect,
         IEarlyUpdateComponent
@@ -220,10 +222,8 @@ namespace Unity.TinyCharacterController.Effect
             // Calculate the distance: Character's radius + 1 frame of movement.
             var distance = _settings.Radius * 0.5f + _velocity.magnitude * deltaTime;
 
-            // Create an array for collision detection.
-            var hits = ArrayPool<RaycastHit>.New(HitCapacity);
-
             // Perform collision detection with the character's shape.
+            using var _ = ArrayPool<RaycastHit>.Shared.Rent(HitCapacity, out var hits);
             var hitCount = Physics.CapsuleCastNonAlloc(top, bottom,
                 _settings.Radius, _velocity.normalized, hits, distance,
                 _settings.EnvironmentLayer, QueryTriggerInteraction.Ignore);
@@ -231,9 +231,6 @@ namespace Unity.TinyCharacterController.Effect
             // Find the closest collider among the colliders within the range, excluding the collider to which self belongs.
             // isCapsuleHit indicates whether the hit was successful.
             var isCapsuleHit = _settings.ClosestHit(hits, hitCount, distance, out var hit);
-
-            // Release the used array.
-            ArrayPool<RaycastHit>.Free(hits);
 
             if (isCapsuleHit)
             {

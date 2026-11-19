@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Unity.TinyCharacterController.Interfaces.Components;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Pool;
 using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Utility;
 
@@ -13,7 +13,9 @@ namespace Unity.TinyCharacterController
     [SelectionBase]
     [AddComponentMenu(MenuList.MenuBrain + "Character Settings")]
     [RequireInterface(typeof(IBrain))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.CharacterSettings")]
+#endif
     public class CharacterSettings : MonoBehaviour
     {
         /// <summary>
@@ -303,13 +305,11 @@ namespace Unity.TinyCharacterController
         /// </summary>
         private void UpdateSettings()
         {
-            var controls = ListPool<ICharacterSettingUpdateReceiver>.New();
+            using var pool = ListPool<ICharacterSettingUpdateReceiver>.Get(out var controls);
 
             GetComponents(controls);
             foreach (var control in controls)
                 control.OnUpdateSettings(this);
-
-            ListPool<ICharacterSettingUpdateReceiver>.Free(controls);
         }
     }
 }

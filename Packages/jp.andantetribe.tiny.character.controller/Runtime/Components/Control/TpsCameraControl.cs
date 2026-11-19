@@ -4,7 +4,6 @@ using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Interfaces.Utility;
 using Unity.TinyCharacterController.Settings;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -19,8 +18,10 @@ namespace Unity.TinyCharacterController.Control
     /// </summary>
     [AddComponentMenu(MenuList.MenuControl + nameof(TpsCameraControl))]
     [DisallowMultipleComponent]
-    [RenamedFrom("TinyCharacterController.CameraControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.CameraControl")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.TpsCameraControl")]
+#endif
     public class TpsCameraControl : MonoBehaviour, 
         ITurn, 
         ICameraUpdate, 

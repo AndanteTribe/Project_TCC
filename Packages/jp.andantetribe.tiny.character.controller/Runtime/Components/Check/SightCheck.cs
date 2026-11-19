@@ -1,9 +1,9 @@
+using System.Buffers;
 using System.Collections.Generic;
 using Unity.TinyCharacterController.Attributes;
 using Unity.TinyCharacterController.Components.Utility;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Serialization;
@@ -18,8 +18,10 @@ namespace Unity.TinyCharacterController.Check
     [AddComponentMenu(MenuList.MenuCheck + nameof(SightCheck))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.SightCheck")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.SightCheck")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Check.SightCheck")]
+#endif
     public class SightCheck : MonoBehaviour, IEarlyUpdateComponent
     {
         /// <summary>
@@ -33,21 +35,27 @@ namespace Unity.TinyCharacterController.Check
         /// The range of the sight.
         /// </summary>
         [FormerlySerializedAs("range")]
-        [RenamedFrom("range")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("range")]
+#endif
         public int Range = 10;
 
         /// <summary>
         /// The angle of the sight.
         /// </summary>
         [FormerlySerializedAs("angle")]
-        [RenamedFrom("angle")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("angle")]
+#endif
         public int Angle = 30;
 
         /// <summary>
         /// The layer to use for detection. Objects in this layer will be visible.
         /// </summary>
         [FormerlySerializedAs("layer")]
-        [RenamedFrom("layer")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("layer")]
+#endif
         public LayerMask VisibleLayerMask;
 
         /// <summary>
@@ -69,7 +77,9 @@ namespace Unity.TinyCharacterController.Check
         /// </summary>
         [FormerlySerializedAs("raycastCheck")]
         [Header("Options")]
-        [RenamedFrom("raycastCheck")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("raycastCheck")]
+#endif
         public bool RaycastCheck = true;
 
         /// <summary>
@@ -128,10 +138,8 @@ namespace Unity.TinyCharacterController.Check
             var direction = deltaPosition.normalized;
             var distance = deltaPosition.magnitude;
             
-            // Allocate a buffer.
-            var hits = ArrayPool<RaycastHit>.New(Capacity);
-            
             // Check if the sight is clear towards the target from the sensor.
+            using var _ = ArrayPool<RaycastHit>.Shared.Rent(Capacity, out var hits);
             var count = Physics.RaycastNonAlloc(position, direction, hits, distance, _settings.EnvironmentLayer,
                 QueryTriggerInteraction.Ignore);
 
@@ -149,9 +157,6 @@ namespace Unity.TinyCharacterController.Check
                 break;
             }
 
-            // Release the buffer.
-            ArrayPool<RaycastHit>.Free(hits);
-            
             // Return false if obstructed.
             return isCollide;
         }

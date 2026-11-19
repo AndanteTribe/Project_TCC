@@ -3,7 +3,6 @@ using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Modifier;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,8 +22,10 @@ namespace Unity.TinyCharacterController.Control
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
     [AddComponentMenu(MenuList.MenuControl + nameof(LadderMoveControl))]
-    [RenamedFrom("TinyCharacterController.Control.LadderMoveControl")]
-    [RenamedFrom("TinyCharacterController.LadderMoveControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.LadderMoveControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.LadderMoveControl")]
+#endif
     public class LadderMoveControl : MonoBehaviour,
         ITurn,
         IUpdateComponent,
@@ -72,7 +73,11 @@ namespace Unity.TinyCharacterController.Control
         /// Grab the Ladder.
         /// </summary>
         /// <param name="ladder">Ladder to be grabbed.</param>
-        public void GrabLadder([AllowsNull] Ladder ladder)
+        public void GrabLadder(
+#if PACKAGE_VISUAL_SCRIPTING
+            [Unity.VisualScripting.AllowsNull]
+#endif
+            Ladder ladder)
         {
             CurrentLadder = ladder;
 
@@ -175,7 +180,9 @@ namespace Unity.TinyCharacterController.Control
         /// <summary>
         /// Adjust the position of the character.
         /// </summary>
-        [RenamedFrom("LocationCorrection")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("LocationCorrection")]
+#endif
         public void AdjustPosition()
         {
             _timeAmount = 0;

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Unity.TinyCharacterController.Interfaces.Components
@@ -7,8 +6,10 @@ namespace Unity.TinyCharacterController.Interfaces.Components
     /// Updates the character's position.
     /// When updating the position through warping, do not perform movement using Control or SetVelocity.
     /// </summary>
-    [RenamedFrom("TinyCharacterController.Interfaces.IWarp")]
-    [RenamedFrom("TinyCharacterController.Interfaces.Components.IWarp")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Interfaces.IWarp")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Interfaces.Components.IWarp")]
+#endif
     public interface IWarp 
     {
         /// <summary>
@@ -23,7 +24,9 @@ namespace Unity.TinyCharacterController.Interfaces.Components
         /// Does not update the direction.
         /// </summary>
         /// <param name="position"></param>
-        [RenamedFrom("SetPosition")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("SetPosition")]
+#endif
         void Warp(Vector3 position);
 
         /// <summary>
@@ -31,7 +34,9 @@ namespace Unity.TinyCharacterController.Interfaces.Components
         /// Does not update the position.
         /// </summary>
         /// <param name="rotation"></param>
-        [RenamedFrom("SetRotation")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("SetRotation")]
+#endif
         void Warp(Quaternion rotation);
 
         /// <summary>

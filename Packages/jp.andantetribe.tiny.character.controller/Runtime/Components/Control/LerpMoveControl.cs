@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using Unity.Collections;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Interfaces.Core;
@@ -20,10 +19,12 @@ namespace Unity.TinyCharacterController.Control
     [AddComponentMenu(MenuList.MenuControl + nameof(LerpMoveControl))]
     [RequireComponent(typeof(CharacterSettings))]
     [DisallowMultipleComponent]
-    [RenamedFrom("TinyCharacterController.MatchTargetMove")]
-    [RenamedFrom("TinyCharacterController.Effect.MatchTargetMoveControl")]
-    [RenamedFrom("TinyCharacterController.Control.MatchTargetMoveControl")]
-    [RenamedFrom("TinyCharacterController.Control.LerpMoveControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.MatchTargetMove")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Effect.MatchTargetMoveControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.MatchTargetMoveControl")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.LerpMoveControl")]
+#endif
     public class LerpMoveControl : MonoBehaviour,
         ILinearInterpolationMove,
         IMove,

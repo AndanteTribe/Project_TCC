@@ -1,6 +1,5 @@
 using Unity.TinyCharacterController.Interfaces.Components;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,22 +7,28 @@ namespace Unity.TinyCharacterController.Ik
 {
     [DisallowMultipleComponent]
     [AddComponentMenu(MenuList.Ik + nameof(LookAtRig))]
-    [RenamedFrom("TinyCharacterController.LookAtRig")]
-    [RenamedFrom("TinyCharacterController.Ik.LookAtRig")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.LookAtRig")]
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Ik.LookAtRig")]
+#endif
     public class LookAtRig : MonoBehaviour, IIkRig
     {
         /// <summary>
         /// If true, the character looks at the target.
         /// </summary>
         [FormerlySerializedAs("isWork")] 
-        [RenamedFrom("isWork")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("isWork")]
+#endif
         public bool IsWork ;
 
         /// <summary>
         /// The object to look at.
         /// </summary>
-        [AllowsNull]
-        [RenamedFrom("target")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.AllowsNull]
+        [Unity.VisualScripting.RenamedFrom("target")]
+#endif
         [FormerlySerializedAs("target")]
         public Transform Target;
         
@@ -31,27 +36,37 @@ namespace Unity.TinyCharacterController.Ik
         /// Time to switch the look-at effect on/off.
         /// </summary>
         [FormerlySerializedAs("transitionTime")] 
-        [RenamedFrom("transitionTime")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("transitionTime")]
+#endif
         public float TransitionTime = 1;
 
         [Range(0, 1)] 
         [FormerlySerializedAs("bodyWeight")] 
-        [RenamedFrom("bodyWeight")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("bodyWeight")]
+#endif
         public float BodyWeight = 0.12f;
         
         [Range(0, 1)] 
         [FormerlySerializedAs("headWeight")] 
-        [RenamedFrom("headWeight")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("headWeight")]
+#endif
         public float HeadWeight = 0.3f;
         
         [Range(0, 1)] 
         [FormerlySerializedAs("eyeWeight")]
-        [RenamedFrom("eyeWeight")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("eyeWeight")]
+#endif
         public float EyeWeight = 0.3f;
         
         [Range(0, 1)]
         [FormerlySerializedAs("clampAngle")]
-        [RenamedFrom("clampAngle")]
+#if PACKAGE_VISUAL_SCRIPTING
+        [Unity.VisualScripting.RenamedFrom("clampAngle")]
+#endif
         public float ClampAngle = 0.5f;
 
         private bool _isValid;

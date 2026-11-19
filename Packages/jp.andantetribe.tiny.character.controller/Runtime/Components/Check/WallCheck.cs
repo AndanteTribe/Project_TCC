@@ -17,8 +17,10 @@ namespace Unity.TinyCharacterController.Check
     [AddComponentMenu(MenuList.MenuCheck + nameof(WallCheck))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
+#if PACKAGE_VISUAL_SCRIPTING
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.WallCheck")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Check.WallCheck")]
+#endif
     public class WallCheck : MonoBehaviour, 
         IEarlyUpdateComponent, IWallCheck
     {

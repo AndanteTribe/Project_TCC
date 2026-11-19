@@ -1,6 +1,5 @@
 using Unity.TinyCharacterController.Interfaces.Core;
 using Unity.TinyCharacterController.Utility;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -16,8 +15,10 @@ namespace Unity.TinyCharacterController.Control
     [AddComponentMenu(MenuList.MenuControl + nameof(CursorPositionControl))]
     [DisallowMultipleComponent]
     [RequireComponent(typeof(CharacterSettings))]
-    [RenamedFrom("TinyCharacterController.CursorPositionControl")]
+#if PACKAGE_VISUAL_SCRIPTING
+    [Unity.VisualScripting.RenamedFrom("TinyCharacterController.CursorPositionControl")]
     [Unity.VisualScripting.RenamedFrom("TinyCharacterController.Control.CursorPositionControl")]
+#endif
     public class CursorPositionControl : 
         MonoBehaviour, 
         ITurn,
