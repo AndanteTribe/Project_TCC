@@ -1,0 +1,27 @@
+{
+    "name": "TinyCharacterController.VisualScripting",
+    "rootNamespace": "TinyCharacterController.VisualScripting",
+    "references": [
+        "GUID:21b0c8d1703a94250bfac916590cea4f",
+        "GUID:ea715009a4efd4c6cbc85be3ae097dd3",
+        "GUID:fd9b4bfdbc54f44ec99514cf98018183",
+        "GUID:61c5e73958f75445d99e546b9dc1a360"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [
+        "PACKAGE_VISUAL_SCRIPTING"
+    ],
+    "versionDefines": [
+        {
+            "name": "com.unity.visualscripting",
+            "expression": "1.9.13",
+            "define": "PACKAGE_VISUAL_SCRIPTING"
+        }
+    ],
+    "noEngineReferences": false
+}

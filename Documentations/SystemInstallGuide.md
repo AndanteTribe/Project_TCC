@@ -5,14 +5,14 @@ Project_TCCに含まれるシステムを、ご自身のUnityプロジェクト�
 ## インストール手順
 
 1. **Project_TCCをダウンロード**  
-   `Project_TCC`を[Zip形式でダウンロード](https://github.com/unity3d-jp/Project_TCC/archive/refs/heads/main.zip)します。
+   `Project_TCC`を[Zip形式でダウンロード](https://github.com/AndanteTribe/Project_TCC/archive/refs/heads/main.zip)します。
 
 2. **Zipフォルダを解凍**  
    ダウンロードしたZipフォルダを解凍します。
 
 3. **パッケージをプロジェクトに配置**  
    解凍したフォルダから以下のパッケージを、自身のプロジェクトの`Packages`フォルダ以下に配置します。（あるいは、パッケージを参照します。）
-   - `com.utj.charactercontroller`（キャラクター制御）
+   - `jp.andantetribe.tiny.character.controller`（キャラクター制御）
    - `com.utj.gameobjectfolder`（フォルダとして扱えるGameObject）
    - `com.utj.savedata`（ゲームの進行データを保存する）
    - `com.utj.scenarioimporter`（テキストからゲームで扱いやすい台本を抽出する）

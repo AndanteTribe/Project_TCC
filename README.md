@@ -1,20 +1,12 @@
-# Project_TCC v.1.0.2
+# Project_TCC (AndanteTribe fork)
 TCC stands for **Tiny Character Controller**. TCC provides a comprehensive solution for creating your own game.
 
 This repository contains all packages and examples for TCC projects.
 
-Project_TCC is the latest Unity-Chan! project. Enjoy yourselves!
-
-## 2024/02/09: Information and disclaimer
-We appreciate your interest in Project_TCC.
-
-This project and repository "Project_TCC" is provided as-is, without any maintenance or release plan.
-
-Therefore, we are unable to monitor bug reports, accept feature requests, or review pull requests for this package.
-
-However, we recognize that some users may wish to continue utilizing and enhancing Project_TCC. In that case, we recommend that you fork the repository. This will allow you to make changes and enhancements as you see fit.
+This is AndanteTribe's fork of the [original Project_TCC](https://github.com/unity3d-jp/Project_TCC). The fork versions its [Tiny Character Controller package](./Packages/jp.andantetribe.tiny.character.controller/package.json) independently of the upstream project.
 
 ## Release Information
+* 2026/11/20 : Tiny Character Controller v.1.0.0 (AndanteTribe fork) : First Release.
 * 2024/02/21 : Project_TCC v.1.0.2 : Bug Fixed version / Merged [PR#1](https://github.com/unity3d-jp/Project_TCC/pull/1)
 * 2024/02/19 : Project_TCC v.1.0.1 : Bug Fixed version.
 * 2024/02/09 : Project_TCC v.1.0.0 : First Release.
@@ -39,8 +31,8 @@ https://github.com/adobe-fonts/source-han-sans?tab=License-1-ov-file#License-1-o
 ---
 # Project TCC 解説ドキュメント
 
-## Project_TCCが開発されたUnityのバージョン
-* Unity 2023.2.0f1
+## 動作環境
+* このフォークのサンプルプロジェクト：Unity **6000.3.26f1**。
 
 ## 概要
 

@@ -1,0 +1,15 @@
+{
+  "name": "jp.andantetribe.tiny.character.controller",
+  "displayName": "Tiny Character Controller",
+  "author": {
+    "name": "AndanteTribe",
+    "url": "https://github.com/AndanteTribe"
+  },
+  "version": "1.0.0",
+  "unity": "6000.3",
+  "dependencies": {
+    "com.unity.burst": "1.8.31",
+    "com.unity.collections": "2.7.1"
+  },
+  "description": "This package is a toolkit designed to provide flexible and powerful support for character control in games. \nIt consists of four main components: coordinate updates, movement through user input, movement triggered by external factors,\n and sensors for determining movement. Visual Scripting integration is optional."
+}
