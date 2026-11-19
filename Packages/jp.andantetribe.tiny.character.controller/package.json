@@ -1,7 +1,7 @@
 {
   "name": "jp.andantetribe.tiny.character.controller",
   "displayName": "Tiny Character Controller",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "unity": "6000.3",
   "dependencies": {
     "com.unity.burst": "1.8.31",

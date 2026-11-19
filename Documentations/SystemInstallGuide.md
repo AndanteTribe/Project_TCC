@@ -5,7 +5,7 @@ Project_TCCに含まれるシステムを、ご自身のUnityプロジェクト�
 ## インストール手順
 
 1. **Project_TCCをダウンロード**  
-   `Project_TCC`を[Zip形式でダウンロード](https://github.com/unity3d-jp/Project_TCC/archive/refs/heads/main.zip)します。
+   `Project_TCC`を[Zip形式でダウンロード](https://github.com/AndanteTribe/Project_TCC/archive/refs/heads/main.zip)します。
 
 2. **Zipフォルダを解凍**  
    ダウンロードしたZipフォルダを解凍します。
