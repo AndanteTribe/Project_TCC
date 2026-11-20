@@ -1,4 +1,6 @@
 # Project_TCC (AndanteTribe fork)
+[![unity-test](https://github.com/AndanteTribe/Project_TCC/actions/workflows/unity-test.yml/badge.svg)](https://github.com/AndanteTribe/Project_TCC/actions/workflows/unity-test.yml) [![Releases](https://img.shields.io/github/release/AndanteTribe/Project_TCC.svg)](https://github.com/AndanteTribe/Project_TCC/releases) [![openupm](https://img.shields.io/npm/v/jp.andantetribe.tiny.character.controller?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/jp.andantetribe.tiny.character.controller/)
+
 TCC stands for **Tiny Character Controller**. TCC provides a comprehensive solution for creating your own game.
 
 This repository contains all packages and examples for TCC projects.
